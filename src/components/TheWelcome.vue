@@ -14,11 +14,11 @@ export default defineComponent({
     const section_viewport = ref([])
 
     onMounted(() => {
-      let section_view = [
-          document.querySelector('#home').getBoundingClientRect(),
-          document.querySelector('#about').getBoundingClientRect(),
-          document.querySelector('#experience').getBoundingClientRect(),
-          document.querySelector('#projects').getBoundingClientRect(),
+      let section_view: any[] = [
+          document.querySelector('#home')?.getBoundingClientRect(),
+          document.querySelector('#about')?.getBoundingClientRect(),
+          document.querySelector('#experience')?.getBoundingClientRect(),
+          document.querySelector('#projects')?.getBoundingClientRect(),
         ]
       console.log(section_view)
     })

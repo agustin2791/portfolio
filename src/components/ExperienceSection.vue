@@ -10,7 +10,7 @@ interface expStruct {
 export default defineComponent({
 	name: 'ExperienceSection',
 	setup() {
-		const experience: expStruct[] = ref([
+		const experience = ref([
 			{
 				name: 'WageUp Inc.',
 				role: 'Sr. Full-stack Developer',
@@ -61,7 +61,7 @@ export default defineComponent({
 		<div class="duration">{{ e.duration }}</div>
 		<div class="activities">
 			<ul>
-				<li v-for="a in e.activities">{{ a }}</li>
+				<li v-for="a in e.activities" :key="a">{{ a }}</li>
 			</ul>
 		</div>
 	</div>

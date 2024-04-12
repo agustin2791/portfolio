@@ -13,17 +13,16 @@ export default defineComponent({
 		const bg_images = ref([])
 		const showing_image = ref(0)
 		const last_image = ref(0)
-		let change_img_interval
+		let change_img_interval: any
 
 		const getImage = async () => {
-			const img_data = await splash.collections.getPhotos({collectionId: 'Qmz09dv5aLw'}).then(res => {
+			const img_data:any = await splash.collections.getPhotos({collectionId: 'Qmz09dv5aLw'}).then(res => {
 				console.log(res)
 				return res.response
 			})
 			console.log(img_data)
-			bg_images.value = img_data.results.map(r => {
-				console.log(r)
-				return r.urls.regular
+			bg_images.value = img_data.results.map((r:any) => {
+				return r.urls.regular as string
 			})
 			last_image.value = bg_images.value.length - 1
 		}
@@ -43,9 +42,9 @@ export default defineComponent({
 			}, 10000)
 		})
 
-		onBeforeUnmount(() => {
-			stopInterval(change_img_interval)
-		})
+		// onBeforeUnmount(() => {
+		// 	stopInterval(change_img_interval)
+		// })
 		return {
 			window_width,
 			bg_images,

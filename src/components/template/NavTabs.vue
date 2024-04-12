@@ -18,7 +18,7 @@ export default defineComponent({
 		const window_width = window.innerWidth
 		const show_nav = ref(false)
 
-		const move_to = (sec, title) => {
+		const move_to = (title: string) => {
 			selected.value = title
 			// location.href = sec
 		}
@@ -38,9 +38,11 @@ export default defineComponent({
 
 <template>
 	<div class="nav-container">
-		<a v-if="show_nav" :href="s.section" v-smooth-scroll class="nav" v-for="s in sections" @click="move_to(s.section, s.title)">
-			{{ s.title }}
-		</a>
+		<div v-if="show_nav" class="nav-container">
+			<a :href="s.section" v-smooth-scroll class="nav" v-for="s in sections" :key="s.title" @click="move_to(s.title)">
+				{{ s.title }}
+			</a>
+		</div>
 		<button v-if="window_width < 500" class="menu-btn" @click="show_nav = !show_nav"><font-awesome-icon icon="fa-solid fa-bars" /></button>
 	</div>
 </template>

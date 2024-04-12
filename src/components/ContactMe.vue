@@ -4,7 +4,7 @@ import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
 export default defineComponent({
 	name: 'ContactMe',
-	computed: {FontAwesomeIcon},
+	components: {FontAwesomeIcon},
 	setup() {}
 
 })
